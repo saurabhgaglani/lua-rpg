@@ -1,0 +1,91 @@
+local defarc = require "defarc.defarc"
+
+function getOptions()
+	local options = defarc.get_options_table()
+	for i = 1,3 do
+		local option_text = options[i] and options[i].label or ""
+		local option_node = gui.get_node("option"..i)
+		gui.set_text(option_node, option_text)
+	end
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	defarc.load("/assets/dialogue/project_settings.json")
+	local start = defarc.get_starting_element_id()
+	local start_text = defarc.get_text(start)
+	local n = gui.get_node("text0")
+	local n1 = gui.get_node("text1")
+	gui.set_text(n1, start_text)
+	local n2 = gui.get_node("text2")
+	local n3 = gui.get_node("box")
+	gui.set_enabled(n3, false)
+	self.nodes = {}
+	self.in_range = false
+	self.in_dialogue = false
+	self.current_index = 1
+	
+	table.insert(self.nodes, n)
+	table.insert(self.nodes, n1)
+	table.insert(self.nodes, n2)
+	for index,node in pairs(self.nodes) do
+		gui.set_enabled(node, false)
+	end
+
+	getOptions()
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("enable_text") then
+		self.in_range = true
+		local n = gui.get_node("text0")
+		local n3 = gui.get_node("box")
+		gui.set_enabled(n3, true)
+		gui.set_enabled(n, true)
+	elseif message_id == hash("disable_text") then
+		self.in_range = false
+		local n = gui.get_node("text0")
+		local n3 = gui.get_node("box")
+		gui.set_enabled(n, false)
+		gui.set_enabled(n3, false)
+	end
+end
+
+function tablelength(T)
+	local count = 0
+	for _ in pairs(T) do count = count + 1 end
+	return count
+end
+
+function on_input(self, action_id, action)
+	if(action_id == hash("Enter") and action.pressed and self.in_range and self.current_index < tablelength(self.nodes)) then
+		gui.set_enabled(self.nodes[self.current_index], false)
+		gui.set_enabled(self.nodes[self.current_index + 1], true)
+		self.current_index = self.current_index + 1
+	elseif(action_id == hash("Enter") and action.pressed and self.in_range and self.current_index == tablelength(self.nodes)) then
+		gui.set_enabled(self.nodes[self.current_index], false)
+		local n3 = gui.get_node("box")
+		gui.set_enabled(n3, false)
+		self.current_index = 1
+		self.in_range = false
+	end
+end
+
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

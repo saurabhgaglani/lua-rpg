@@ -1,6 +1,8 @@
 [project]
 title = War battles tutorial
 version = 0.1
+custom_resources = /assets/dialogue/project_settings.json
+dependencies#0 = https://github.com/paweljarosz/defarc/archive/refs/tags/v0.3.2.tar.gz
 
 [bootstrap]
 main_collection = /main/main.collectionc
@@ -15,6 +17,7 @@ fullscreen = 0
 
 [physics]
 scale = 0.02
+debug = 0
 
 [script]
 shared_state = 1

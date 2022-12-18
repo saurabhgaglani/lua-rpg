@@ -14,3 +14,7 @@ key_trigger {
   input: KEY_D
   action: "Right"
 }
+key_trigger {
+  input: KEY_ENTER
+  action: "Enter"
+}
