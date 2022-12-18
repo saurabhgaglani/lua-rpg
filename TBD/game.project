@@ -2,7 +2,8 @@
 title = War battles tutorial
 version = 0.1
 custom_resources = /assets/dialogue/project_settings.json
-dependencies#0 = https://github.com/paweljarosz/defarc/archive/refs/tags/v0.3.2.tar.gz
+compress_archive = 1
+dependencies#0 = https://github.com/britzl/ludobits/archive/refs/tags/7.2.0.tar.gz
 
 [bootstrap]
 main_collection = /main/main.collectionc

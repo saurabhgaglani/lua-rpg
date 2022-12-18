@@ -1,15 +1,10 @@
-embedded_components {
-  id: "sprite"
-  type: "sprite"
-  data: "tile_set: \"/main/knight/knight.atlas\"\n"
-  "default_animation: \"knight_idle\"\n"
-  "material: \"/builtins/materials/sprite.material\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
-  ""
+components {
+  id: "player"
+  component: "/main/player1/player.script"
   position {
-    x: 48.554
-    y: 127.672
-    z: 1.0
+    x: 0.0
+    y: 0.0
+    z: 0.0
   }
   rotation {
     x: 0.0
@@ -17,28 +12,44 @@ embedded_components {
     z: 0.0
     w: 1.0
   }
-  scale {
-    x: 0.35
-    y: 0.32
-    z: 1.0
+}
+embedded_components {
+  id: "sprite"
+  type: "sprite"
+  data: "tile_set: \"/main/player1/player.atlas\"\n"
+  "default_animation: \"player_idle\"\n"
+  "material: \"/builtins/materials/sprite.material\"\n"
+  "blend_mode: BLEND_MODE_ALPHA\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
 }
 embedded_components {
   id: "collisionobject"
   type: "collisionobject"
   data: "collision_shape: \"\"\n"
-  "type: COLLISION_OBJECT_TYPE_TRIGGER\n"
+  "type: COLLISION_OBJECT_TYPE_KINEMATIC\n"
   "mass: 0.0\n"
   "friction: 0.0\n"
   "restitution: 0.0\n"
-  "group: \"npc\"\n"
-  "mask: \"player\"\n"
+  "group: \"player\"\n"
+  "mask: \"npc\"\n"
+  "mask: \"cutscene_npc\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
   "    position {\n"
-  "      x: 48.762\n"
-  "      y: 124.974\n"
+  "      x: 0.133\n"
+  "      y: -2.521\n"
   "      z: 0.0\n"
   "    }\n"
   "    rotation {\n"
@@ -50,14 +61,32 @@ embedded_components {
   "    index: 0\n"
   "    count: 3\n"
   "  }\n"
-  "  data: 14.1795\n"
-  "  data: 30.6175\n"
-  "  data: 0.4695\n"
+  "  data: 10.0\n"
+  "  data: 9.6215\n"
+  "  data: 10.0\n"
   "}\n"
   "linear_damping: 0.0\n"
   "angular_damping: 0.0\n"
   "locked_rotation: false\n"
   "bullet: false\n"
+  ""
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
+embedded_components {
+  id: "arrow_factory"
+  type: "factory"
+  data: "prototype: \"/main/weapon/arrow.go\"\n"
+  "load_dynamically: false\n"
   ""
   position {
     x: 0.0

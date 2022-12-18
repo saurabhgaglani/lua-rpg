@@ -1,22 +1,9 @@
-local defarc = require "defarc.defarc"
-
-function getOptions()
-	local options = defarc.get_options_table()
-	for i = 1,3 do
-		local option_text = options[i] and options[i].label or ""
-		local option_node = gui.get_node("option"..i)
-		gui.set_text(option_node, option_text)
-	end
-end
 
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	defarc.load("/assets/dialogue/project_settings.json")
-	local start = defarc.get_starting_element_id()
-	local start_text = defarc.get_text(start)
+
 	local n = gui.get_node("text0")
 	local n1 = gui.get_node("text1")
-	gui.set_text(n1, start_text)
 	local n2 = gui.get_node("text2")
 	local n3 = gui.get_node("box")
 	gui.set_enabled(n3, false)
@@ -31,8 +18,6 @@ function init(self)
 	for index,node in pairs(self.nodes) do
 		gui.set_enabled(node, false)
 	end
-
-	getOptions()
 end
 
 function final(self)
