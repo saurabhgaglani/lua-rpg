@@ -5,7 +5,7 @@ embedded_instances {
   data: "embedded_components {\n"
   "  id: \"enemy\"\n"
   "  type: \"sprite\"\n"
-  "  data: \"tile_set: \\\"/main/ninja/ninja.atlas\\\"\\n"
+  "  data: \"tile_set: \\\"/game/ninja/ninja.atlas\\\"\\n"
   "default_animation: \\\"walk\\\"\\n"
   "material: \\\"/builtins/materials/sprite.material\\\"\\n"
   "blend_mode: BLEND_MODE_ALPHA\\n"

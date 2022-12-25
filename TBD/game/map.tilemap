@@ -1,4 +1,4 @@
-tile_set: "/main/map.tilesource"
+tile_set: "/game/map.tilesource"
 layers {
   id: "layer1"
   z: 0.0

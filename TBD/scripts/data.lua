@@ -38,7 +38,7 @@ M.bounds = vmath.vector4(0,0,0,0)
 M.respawn = vmath.vector3(0,0,0)
 M.portal = {vmath.vector3(), vmath.vector3()}
 
-M.APP_NAME = "crystal-caverns-2"
+M.APP_NAME = "extraction"
 M.SAVE_FILE_NAME = "savefile"
 
 function M.world2tile(p)

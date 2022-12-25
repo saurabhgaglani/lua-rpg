@@ -1,6 +1,6 @@
 components {
   id: "arrow"
-  component: "/main/weapon/arrow.script"
+  component: "/game/weapon/arrow.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,7 +16,7 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/main/weapon/weapon.atlas\"\n"
+  data: "tile_set: \"/game/weapon/weapon.atlas\"\n"
   "default_animation: \"arrow\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
