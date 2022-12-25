@@ -16,5 +16,13 @@ function update(self, dt)
 		go.set_rotation(vmath.quat())                       -- [4]
 		self.speed = 0                                      -- [5]
 		go.delete()
+		msg.post("/player#player", "arrow_destroyed")
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("collision_response") then    -- [3]
+		go.delete()                         -- [5]
+		msg.post("/player#player", "arrow_destroyed")
 	end
 end
