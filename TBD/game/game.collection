@@ -3,8 +3,8 @@ instances {
   id: "knight"
   prototype: "/game/knight/knight.go"
   position {
-    x: 521.731
-    y: 512.511
+    x: 74.731
+    y: 12.511
     z: 0.0
   }
   rotation {
@@ -14,8 +14,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.747
+    y: 0.626
     z: 1.0
   }
 }
@@ -23,8 +23,8 @@ instances {
   id: "knight_card"
   prototype: "/game/knight_card/knight_card.go"
   position {
-    x: 179.0
-    y: 61.0
+    x: -64.0
+    y: -82.0
     z: 0.0
   }
   rotation {
@@ -34,8 +34,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.347
+    y: 0.254
     z: 1.0
   }
 }
@@ -43,8 +43,8 @@ instances {
   id: "cutscene"
   prototype: "/game/cutscene_gui/cutscene.go"
   position {
-    x: 179.0
-    y: 61.0
+    x: -284.0
+    y: -223.0
     z: 0.0
   }
   rotation {
@@ -54,8 +54,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.747
+    y: 0.626
     z: 1.0
   }
 }
@@ -63,8 +63,8 @@ instances {
   id: "knight1"
   prototype: "/game/knight/knight.go"
   position {
-    x: 529.545
-    y: 519.544
+    x: 135.545
+    y: 14.544
     z: 0.0
   }
   rotation {
@@ -74,8 +74,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.747
+    y: 0.626
     z: 1.0
   }
 }
@@ -83,8 +83,8 @@ instances {
   id: "player"
   prototype: "/game/player1/player.go"
   position {
-    x: 298.615
-    y: 556.654
+    x: -62.385
+    y: 47.654
     z: 1.0
   }
   rotation {
@@ -94,8 +94,8 @@ instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.747
+    y: 0.626
     z: 1.0
   }
 }
@@ -103,8 +103,8 @@ collection_instances {
   id: "ninja"
   collection: "/game/ninja/ninja.collection"
   position {
-    x: 633.0
-    y: 623.0
+    x: 92.0
+    y: 84.0
     z: 1.0
   }
   rotation {
@@ -114,8 +114,8 @@ collection_instances {
     w: 1.0
   }
   scale3 {
-    x: 0.206
-    y: 0.196
+    x: 0.154
+    y: 0.123
     z: 1.0
   }
 }
@@ -141,8 +141,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 179.0
-    y: 61.0
+    x: -109.0
+    y: -119.0
     z: 0.0
   }
   rotation {
@@ -152,8 +152,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.0
+    x: 0.468
+    y: 0.358
     z: 1.0
   }
 }
@@ -234,8 +234,8 @@ embedded_instances {
   "}\n"
   ""
   position {
-    x: 179.0
-    y: 61.0
+    x: -284.0
+    y: -223.0
     z: 0.0
   }
   rotation {
@@ -245,8 +245,8 @@ embedded_instances {
     w: 1.0
   }
   scale3 {
-    x: 1.0
-    y: 1.058
+    x: 0.747
+    y: 0.663
     z: 1.0
   }
 }

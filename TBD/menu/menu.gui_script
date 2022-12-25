@@ -38,6 +38,7 @@ function init(self)
 	col.w = 0
 	gui.animate(node, gui.PROP_COLOR, col, gui.EASING_LINEAR, 0.5, 0, disablenode)
 
+	-- sound.play("main:/sound#music-menu")
 	data.state = data.STATE_MENU
 end
 
@@ -47,9 +48,9 @@ local function startgame(self, node)
 	data.boom = data.maxlevel
 	data.level = data.maxlevel
 	data.state = data.STATE_PLAYING
+	-- sound.stop("main:/sound#music-menu")
 	msg.post("main:/handler", "show_game")
 end	
-
 
 local function show(self)
 	gui.set_enabled(self.node, true)
