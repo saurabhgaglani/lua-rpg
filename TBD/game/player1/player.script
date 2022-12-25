@@ -7,6 +7,7 @@ local function play_animation(self, animation)
 	if self.current_animation ~= animation then
 		self.current_animation = animation
 		sprite.play_flipbook("#sprite", animation)
+
 	end
 end
 
@@ -48,9 +49,10 @@ function update(self, dt)
 	if self.direction.x == 0 and self.direction.y == 0 then
 		if(self.current_animation == hash("player_movement_up")) then
 			play_animation(self, hash("player_idle_up"))
-		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle_up") then
+		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle_up") and self.attacking == false then
+			self.attacking = true
 			sequence.run_once(function()
-			-- Run animations one after another
+				-- Run animations one after another
 				sequence.sprite_play_flipbook("#sprite", hash("player_attack_up"))
 				sequence.sprite_play_flipbook("#sprite", hash("player_idle_up"))
 			end)
@@ -61,7 +63,8 @@ function update(self, dt)
 		
 		elseif(self.current_animation == hash("player_movement_right")) then
 			play_animation(self, hash("player_idle_right"))
-		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle_right") then
+		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle_right") and self.attacking == false then
+			self.attacking = true
 			sequence.run_once(function()
 				-- Run animations one after another
 				sequence.sprite_play_flipbook("#sprite", hash("player_attack_right"))
@@ -69,11 +72,13 @@ function update(self, dt)
 			end)
 			local angle = math.atan2(self.direction.y, 1)    
 			local rot = vmath.quat_rotation_z(angle)            
-			local props = { dir = vmath.vector3(1,0,0) }                    
+			local props = { dir = vmath.vector3(1,0,0) }        
 			factory.create("#arrow_factory", nil, rot, props)   
+			
 		elseif(self.current_animation == hash("player_movement_down")) then
 			play_animation(self, hash("player_idle"))
-		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle") then
+		elseif self.actions[hash("Attack")] and self.current_animation == hash("player_idle") and self.attacking == false then
+			self.attacking = true
 			sequence.run_once(function()
 				-- Run animations one after another
 				sequence.sprite_play_flipbook("#sprite", hash("player_attack_down"))
@@ -106,6 +111,9 @@ function on_message(self, message_id, message, sender)
 				msg.post("/cutscene#cutscene_card", "disable_cutscene")
 			end
 		end
+	end
+	if message_id == hash("arrow_destroyed") then
+		self.attacking = false
 	end
 end
 

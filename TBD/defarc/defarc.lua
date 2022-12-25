@@ -1291,18 +1291,20 @@ end
 function M.get_options_table(element)
 	local options = {}
 	local outputs = M.get_element_outputs(element)
-	for i,output_connection in pairs(outputs) do
-		local target_id = M.get_connection_target_id(output_connection)
-		if M.get_connection_target_type(output_connection) == "branches" then
-			output_connection = get_passing_branching_option(output_connection)
-			target_id = M.get_connection_target_id(output_connection)
+	if type(outputs) == "table" then
+		for i,output_connection in pairs(outputs) do
+			local target_id = M.get_connection_target_id(output_connection)
+			if M.get_connection_target_type(output_connection) == "branches" then
+				output_connection = get_passing_branching_option(output_connection)
+				target_id = M.get_connection_target_id(output_connection)
+			end
+			local label_unparsed = M.get_connection_label(output_connection)
+			local label_parsed = parser.parse_element_content(label_unparsed, M)
+			options[i] = { target_id = target_id,
+				label = label_parsed,
+				theme = M.get_connection_theme(output_connection),
+				target_type = M.get_connection_target_type(output_connection)}
 		end
-		local label_unparsed = M.get_connection_label(output_connection)
-		local label_parsed = parser.parse_element_content(label_unparsed, M)
-		options[i] = { target_id = target_id,
-			label = label_parsed,
-			theme = M.get_connection_theme(output_connection),
-			target_type = M.get_connection_target_type(output_connection)}
 	end
 	return options
 end

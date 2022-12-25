@@ -5,6 +5,7 @@ function init(self)
 	local n = gui.get_node("text0")
 	local n1 = gui.get_node("text1")
 	local n2 = gui.get_node("text2")
+	local n4 = gui.get_node("text3")
 	local n3 = gui.get_node("box")
 	gui.set_enabled(n3, false)
 	self.nodes = {}
@@ -15,6 +16,8 @@ function init(self)
 	table.insert(self.nodes, n)
 	table.insert(self.nodes, n1)
 	table.insert(self.nodes, n2)
+	table.insert(self.nodes, n4)
+	
 	for index,node in pairs(self.nodes) do
 		gui.set_enabled(node, false)
 	end
