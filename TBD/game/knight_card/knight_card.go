@@ -1,6 +1,6 @@
 components {
   id: "knight_card"
-  component: "/main/knight_card/knight_card.gui"
+  component: "/game/knight_card/knight_card.gui"
   position {
     x: 0.0
     y: 0.0

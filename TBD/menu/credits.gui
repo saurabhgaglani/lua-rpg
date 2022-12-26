@@ -1,11 +1,15 @@
-script: "/main/cutscene_gui/cutscene.gui_script"
+script: "/menu/credits.gui_script"
 fonts {
-  name: "text"
-  font: "/main/text.font"
+  name: "main"
+  font: "/assets/fonts/main.font"
 }
 fonts {
-  name: "system_font"
-  font: "/builtins/fonts/system_font.font"
+  name: "large"
+  font: "/assets/fonts/large.font"
+}
+textures {
+  name: "main"
+  texture: "/menu/menu.atlas"
 }
 background_color {
   x: 0.0
@@ -15,8 +19,8 @@ background_color {
 }
 nodes {
   position {
-    x: 509.507
-    y: 499.278
+    x: 512.0
+    y: 288.0
     z: 0.0
     w: 1.0
   }
@@ -27,31 +31,31 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 5.162
-    y: 10.216
-    z: 1.02
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
     x: 0.0
     y: 0.0
     z: 0.0
     w: 1.0
   }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
   texture: ""
-  id: "box"
+  id: "container"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
+  adjust_mode: ADJUST_MODE_STRETCH
   layer: ""
   inherit_alpha: true
   slice9 {
@@ -65,80 +69,15 @@ nodes {
   clipping_inverted: false
   alpha: 1.0
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
+  size_mode: SIZE_MODE_MANUAL
   custom_type: 0
-  enabled: false
+  enabled: true
   visible: true
 }
 nodes {
   position {
-    x: 474.063
-    y: 822.013
-    z: 0.0
-    w: 1.0
-  }
-  rotation {
     x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale {
-    x: 1.686
-    y: 1.085
-    z: 1.0
-    w: 1.0
-  }
-  size {
-    x: 200.0
-    y: 100.0
-    z: 0.0
-    w: 1.0
-  }
-  color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
-  text: "<text>"
-  font: "system_font"
-  id: "title"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  shadow {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-    w: 1.0
-  }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
-  layer: ""
-  inherit_alpha: true
-  alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
-  template_node_child: false
-  text_leading: 1.0
-  text_tracking: 0.0
-  custom_type: 0
-  enabled: false
-  visible: true
-}
-nodes {
-  position {
-    x: 237.402
-    y: 560.382
+    y: 120.0
     z: 0.0
     w: 1.0
   }
@@ -150,34 +89,34 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 1.5
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 300.0
+    y: 32.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.9254902
+    y: 0.9372549
+    z: 0.9882353
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: "<text>"
-  font: "system_font"
-  id: "option1"
+  text: "CREDITS"
+  font: "large"
+  id: "credits"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
   pivot: PIVOT_CENTER
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.015686275
+    y: 0.015686275
+    z: 0.019607844
     w: 1.0
   }
   shadow {
@@ -186,24 +125,25 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
+  adjust_mode: ADJUST_MODE_STRETCH
+  line_break: false
+  parent: "container"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
-  shadow_alpha: 1.0
+  shadow_alpha: 0.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
   custom_type: 0
-  enabled: false
+  enabled: true
   visible: true
 }
 nodes {
   position {
-    x: 765.005
-    y: 557.126
+    x: -20.0
+    y: -50.0
     z: 0.0
     w: 1.0
   }
@@ -215,34 +155,35 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 1.5
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 300.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.98039216
+    y: 0.61960787
+    z: 0.23529412
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "system_font"
-  id: "option2"
+  text: "developed by\n"
+  "made with"
+  font: "main"
+  id: "left"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_E
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.015686275
+    y: 0.015686275
+    z: 0.019607844
     w: 1.0
   }
   shadow {
@@ -251,24 +192,25 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
+  adjust_mode: ADJUST_MODE_STRETCH
+  line_break: false
+  parent: "container"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
-  shadow_alpha: 1.0
+  shadow_alpha: 0.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
   custom_type: 0
-  enabled: false
+  enabled: true
   visible: true
 }
 nodes {
   position {
-    x: 475.148
-    y: 334.577
+    x: 20.0
+    y: -50.0
     z: 0.0
     w: 1.0
   }
@@ -280,34 +222,35 @@ nodes {
   }
   scale {
     x: 1.0
-    y: 1.5
+    y: 1.0
     z: 1.0
     w: 1.0
   }
   size {
-    x: 200.0
-    y: 100.0
+    x: 300.0
+    y: 200.0
     z: 0.0
     w: 1.0
   }
   color {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.9254902
+    y: 0.9372549
+    z: 0.9882353
     w: 1.0
   }
   type: TYPE_TEXT
   blend_mode: BLEND_MODE_ALPHA
-  text: ""
-  font: "system_font"
-  id: "option3"
+  text: "Team Neeson\n"
+  "Defold"
+  font: "main"
+  id: "right"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
+  pivot: PIVOT_W
   outline {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 0.015686275
+    y: 0.015686275
+    z: 0.019607844
     w: 1.0
   }
   shadow {
@@ -316,18 +259,19 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: true
+  adjust_mode: ADJUST_MODE_STRETCH
+  line_break: false
+  parent: "container"
   layer: ""
   inherit_alpha: true
   alpha: 1.0
   outline_alpha: 1.0
-  shadow_alpha: 1.0
+  shadow_alpha: 0.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
   custom_type: 0
-  enabled: false
+  enabled: true
   visible: true
 }
 material: "/builtins/materials/gui.material"

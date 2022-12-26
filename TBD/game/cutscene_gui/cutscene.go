@@ -1,6 +1,6 @@
 components {
   id: "cutscene_card"
-  component: "/main/cutscene_gui/cutscene_card.gui"
+  component: "/game/cutscene_gui/cutscene_card.gui"
   position {
     x: 0.0
     y: 0.0
